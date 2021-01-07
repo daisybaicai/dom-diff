@@ -19,7 +19,7 @@ Element.prototype.render = function() {
  * 创建dom
  * @param {*} vdom 
  */
-function createDom(vdom) {
+export function createDom(vdom) {
     let dom;
     const {type, props, children = []} = vdom;
     if(type) {
@@ -54,7 +54,7 @@ function updateProps(dom, props) {
  * @param {*} key 
  * @param {*} value 
  */
-function setAttr(dom, key, value) {
+export function setAttr(dom, key, value) {
     switch (key) {
         case 'class': 
             dom.className = value;
