@@ -44,11 +44,28 @@ function createDom(vdom) {
  */
 function updateProps(dom, props) {
     for (const key in props) {
-        if(key === 'class') {
-            dom.className = props[key];
-        } else {
-            dom[key] = props[key]
-        }
+        setAttr(dom, key, props[key]);
+    }
+}
+
+/**
+ * 设置属性
+ * @param {*} dom 
+ * @param {*} key 
+ * @param {*} value 
+ */
+function setAttr(dom, key, value) {
+    switch (key) {
+        case 'class': 
+            dom.className = value;
+            break;
+        case 'style':
+            if(typeof value === 'string') {
+                dom.style.cssText = value;
+            }
+            break;
+        default: 
+            dom[key] =value;
     }
 }
 
